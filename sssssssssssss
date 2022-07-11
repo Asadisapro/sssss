@@ -167,6 +167,7 @@ end)
 local credits = Window:NewTab("credits")
 local creditsSection = credits:NewSection("credits")
 
+creditsSection:NewLabel("king at finding erros Jkgamer1_0#1076")
 creditsSection:NewLabel("https://discord.gg/96DKrytwnY")
 creditsSection:NewLabel("made by Trigzzy#8305")
 creditsSection:NewLabel("yt:robloxexploiter786")
