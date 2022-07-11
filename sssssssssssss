@@ -1,0 +1,212 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ncs hub", "Sentinel")
+
+--PLAYER
+local Main = Window:NewTab("Player")
+local MainSection = Main:NewSection("Player")
+
+
+MainSection:NewButton("Walkspeed", "makes you run fast", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+MainSection:NewButton("Infinite jump", "makes jump high", function()
+    local InfiniteJumpEnabled = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+        end
+    end)
+end)
+
+MainSection:NewButton("ctrl+click", "makes you teleport", function()
+    local Plr = game:GetService("Players").LocalPlayer
+    local Mouse = Plr:GetMouse()
+     
+    Mouse.Button1Down:connect(function()
+    if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+    if not Mouse.Target then return end
+    Plr.Character:MoveTo(Mouse.Hit.p)
+    end)
+end)
+
+MainSection:NewButton("Esp", "you can see people", function()
+    local color = BrickColor.new(50,0,250)
+    local transparency = .8
+    
+    local Players = game:GetService("Players")
+    local function _ESP(c)
+      repeat wait() until c.PrimaryPart ~= nil
+      for i,p in pairs(c:GetChildren()) do
+        if p.ClassName == "Part" or p.ClassName == "MeshPart" then
+          if p:FindFirstChild("shit") then p.shit:Destroy() end
+          local a = Instance.new("BoxHandleAdornment",p)
+          a.Name = "shit"
+          a.Size = p.Size
+          a.Color = color
+          a.Transparency = transparency
+          a.AlwaysOnTop = true    
+          a.Visible = true    
+          a.Adornee = p
+          a.ZIndex = true    
+    
+        end
+      end
+    end
+    local function ESP()
+      for i,v in pairs(Players:GetChildren()) do
+        if v ~= game.Players.LocalPlayer then
+          if v.Character then
+            _ESP(v.Character)
+          end
+          v.CharacterAdded:Connect(function(chr)
+            _ESP(chr)
+          end)
+        end
+      end
+      Players.PlayerAdded:Connect(function(player)
+        player.CharacterAdded:Connect(function(chr)
+          _ESP(chr)
+        end)  
+      end)
+    end
+    ESP()
+end)
+
+MainSection:NewButton("Btools", "btools", function()
+    Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+end)
+
+MainSection:NewButton("Fly", "Fly's", function()
+    loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  end)
+
+
+--Autofarm
+local Autofarm = Window:NewTab("Autofarm")
+local AutofarmSection = Autofarm:NewSection("Autofarm")
+
+AutofarmSection:NewButton("Jailbreak", "farm", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wawsdasdacx/ohascriptnrrewading/main/jbsaxcriptidk1"))();
+end)
+
+AutofarmSection:NewButton("pet sim x", "farm", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/EVENT!-Pet-Simulator-X!-Paste-Pasta-2267",linest==braindead))()
+end)
+
+AutofarmSection:NewButton("Adopt me", "farm", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Asadisapro/adopt-me-farm/main/farm",true))();
+end)
+
+AutofarmSection:NewButton("bloxburg", "farm", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/wRDKhc0M",true))();
+end)
+
+AutofarmSection:NewButton("Madcity", "Farm", function()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/811e25ec8cfcdaa9ae7026353288783c/raw/4b073a5c1a0a4e2ed7e2304c2e769eb440a371a9/h", true))()
+end)
+
+AutofarmSection:NewButton("mm2", "farm", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Ethanoj1/EclipseMM2/master/Script'),true))()
+end)
+
+
+--Trolling
+local Trolling = Window:NewTab("Trolling")
+local TrollingSection = Trolling:NewSection("Trolling")
+
+TrollingSection:NewButton("Car crash", "crasher", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/YwkKw09a'))()
+end)
+
+TrollingSection:NewButton("Ultmate trolling", "troll", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"))()
+end)
+
+TrollingSection:NewButton("Animations", "trolls", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/s9HABSp2",true))();
+end)
+
+TrollingSection:NewButton("Legacy", "hub", function()
+    loadstring(game:GetObjects("rbxassetid://1683559539")[1].Source)()
+end)
+
+TrollingSection:NewButton("oceon", "oceon", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/8cw7FMq4", true))()
+end)
+
+TrollingSection:NewButton("fling", "fling", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/saMtiek2",true))()
+end)
+
+TrollingSection:NewButton("bang", "bang", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/manimcool21/bang/main/Protected%20(27).lua'))()
+end)
+
+
+--Rejoin
+local Rejoin = Window:NewTab("Rejoin")
+local RejoinSection = Rejoin:NewSection("Rejoin")
+
+RejoinSection:NewButton("rejoin", "rejoin", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/STcd1Znj"))()
+end)
+
+
+--AntiAfk
+local AntiAfk = Window:NewTab("AntiAfk")
+local AntiAfkSection = AntiAfk:NewSection("AntiAfk")
+
+AntiAfkSection:NewButton("AntiAfk", "AntiAfk", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KazeOnTop/Rice-Anti-Afk/main/Wind", true))()
+end)
+
+
+--credits
+local credits = Window:NewTab("credits")
+local creditsSection = credits:NewSection("credits")
+
+creditsSection:NewLabel("https://discord.gg/96DKrytwnY")
+creditsSection:NewLabel("made by Trigzzy#8305")
+creditsSection:NewLabel("yt:robloxexploiter786")
+creditsSection:NewKeybind("toggle", "On and off", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+
+--scripts
+local scripts = Window:NewTab("scripts")
+local scriptsSection = scripts:NewSection("scripts")
+
+scriptsSection:NewButton("ragdoll engine", "script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/martinelcrac/cryptonichub/main/Ragdollengine.lua'))()
+end)
+
+scriptsSection:NewButton("jailbreak", "hub", function()
+    pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Kw6m/Subbers-scripts/main/jailbreak", true))()
+        end)
+end)
+
+scriptsSection:NewButton("pet sim x ", "hub", function()
+    _G.Color = Color3.fromRGB(255, 255, 255)
+    loadstring(game:HttpGet"https://rawscripts.net/raw/SAZA-HUB_496")()
+end)
+
+scriptsSection:NewButton("military tycoon", "W", function()
+    loadstring(game:HttpGet"https://thedragonslayer2.github.io")()
+end)
+
+scriptsSection:NewButton("starving artist", "Hold r on paintings", function()
+    Settings = {
+        Timer = true -- false if You Dont Wanna Timer --
+    }
+    
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/anisnouacer1/My-Roblox-Scripts/main/Starving%20Artists.lua')))()
+end)
+
+scriptsSection:NewButton("sharkbite", "sharkbite", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/YYVLbzVg", true))()
+end)
+
